@@ -20,6 +20,7 @@ cat sources/ulcérations-contrainte.*.txt > perec-ulcérations-contrainte.txt
 rm sources/ulcérations-contrainte.*.txt
 
 # editing
+
 sed -i \
   -e 's/\f//g' \
   -e 's/— *[[:digit:]]\+—//g' \
@@ -81,6 +82,12 @@ sed -i \
   -e 's/^un écart./      un écart./' \
   perec-ulcérations.txt
 
+# https://stackoverflow.com/a/20616006
+vim -N -u NONE \
+  -n -c "set nomore" \
+  -S "pretty.vim" \
+  perec-ulcérations.txt
+
 echo "Georges Perec"      >> tmp
 echo ""                   >> tmp
 echo "Ulcérations"        >> tmp
@@ -112,5 +119,4 @@ gs \
   sources/*.pdf
 rm sources/*.pdf
 
-echo "done!"
 echo "---------------------------------------"
